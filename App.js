@@ -11,6 +11,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
+          <View style={{height:20}} />
           <History />
         </View>
       </Provider>
@@ -22,6 +23,5 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40
   }
 });

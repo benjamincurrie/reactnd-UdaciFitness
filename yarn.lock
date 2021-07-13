@@ -3113,7 +3113,7 @@
     "js-yaml" "^3.13.1"
     "parse-json" "^4.0.0"
 
-"create-react-class@^15.6.2":
+"create-react-class@*", "create-react-class@^15.6.2":
   "integrity" "sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng=="
   "resolved" "https://registry.npmjs.org/create-react-class/-/create-react-class-15.7.0.tgz"
   "version" "15.7.0"
@@ -3280,6 +3280,16 @@
   "integrity" "sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak="
   "resolved" "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz"
   "version" "1.1.2"
+
+"deprecated-react-native-listview@0.0.6":
+  "integrity" "sha512-QRuN0Dcv3Muu1oT8MhZgyfqm77bTAegVwqSRJKVwVVsm0xJE0TBfqdD45VXYLIS+yMXPJoeXdSqSdVQSjwlOpQ=="
+  "resolved" "https://registry.npmjs.org/deprecated-react-native-listview/-/deprecated-react-native-listview-0.0.6.tgz"
+  "version" "0.0.6"
+  dependencies:
+    "create-react-class" "*"
+    "fbjs" "*"
+    "invariant" "*"
+    "react-clone-referenced-element" "*"
 
 "destroy@~1.0.4":
   "integrity" "sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA="
@@ -3696,12 +3706,13 @@
     "semver" "^5.1.0"
     "through2" "^2.0.0"
 
-"fbjs@^0.8.4":
-  "integrity" "sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90="
-  "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-0.8.17.tgz"
-  "version" "0.8.17"
+"fbjs@*", "fbjs@^1.0.0":
+  "integrity" "sha512-MUgcMEJaFhCaF1QtWGnmq9ZDRAzECTCRAF7O6UZIlAlkTs1SasiX9aP0Iw7wfD2mJ7wDTNfg2w7u5fSCwJk1OA=="
+  "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-1.0.0.tgz"
+  "version" "1.0.0"
   dependencies:
-    "core-js" "^1.0.0"
+    "core-js" "^2.4.1"
+    "fbjs-css-vars" "^1.0.0"
     "isomorphic-fetch" "^2.1.1"
     "loose-envify" "^1.0.0"
     "object-assign" "^4.1.0"
@@ -3709,13 +3720,12 @@
     "setimmediate" "^1.0.5"
     "ua-parser-js" "^0.7.18"
 
-"fbjs@^1.0.0":
-  "integrity" "sha512-MUgcMEJaFhCaF1QtWGnmq9ZDRAzECTCRAF7O6UZIlAlkTs1SasiX9aP0Iw7wfD2mJ7wDTNfg2w7u5fSCwJk1OA=="
-  "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-1.0.0.tgz"
-  "version" "1.0.0"
+"fbjs@^0.8.4":
+  "integrity" "sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90="
+  "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-0.8.17.tgz"
+  "version" "0.8.17"
   dependencies:
-    "core-js" "^2.4.1"
-    "fbjs-css-vars" "^1.0.0"
+    "core-js" "^1.0.0"
     "isomorphic-fetch" "^2.1.1"
     "loose-envify" "^1.0.0"
     "object-assign" "^4.1.0"
@@ -4154,7 +4164,7 @@
     "strip-ansi" "^4.0.0"
     "through" "^2.3.6"
 
-"invariant@^2.2.2", "invariant@^2.2.4":
+"invariant@*", "invariant@^2.2.2", "invariant@^2.2.4":
   "integrity" "sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA=="
   "resolved" "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   "version" "2.2.4"
@@ -5708,7 +5718,7 @@
   dependencies:
     "asap" "~2.0.6"
 
-"prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
+"prop-types@^15.5.10", "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -5739,6 +5749,11 @@
   "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
   "resolved" "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   "version" "1.2.1"
+
+"react-clone-referenced-element@*":
+  "integrity" "sha512-LZBPvQV8W0B5dFzXFu+D3Tpil8YHS8tO00iFsfXcTLdtpuH7XyvaHqHcoz4hd4uNPQCZ30fceh+s7mLznzMXvg=="
+  "resolved" "https://registry.npmjs.org/react-clone-referenced-element/-/react-clone-referenced-element-1.1.1.tgz"
+  "version" "1.1.1"
 
 "react-devtools-core@^4.6.0":
   "integrity" "sha512-k+P5VSKM6P22Go9IQ8dJmjj9fbztvKt1iRDI/4wS5oTvd1EnytIJMYB59wZt+D3kgp64jklNX/MRmY42xAQ08g=="
@@ -6671,6 +6686,14 @@
   "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.28.tgz"
   "version" "0.7.28"
 
+"udacifitness-calendar@github:ftrevo/react-native-calendars#master":
+  "resolved" "git+ssh://git@github.com/ftrevo/react-native-calendars.git#28bcd0da3591bd3da0580e8b9c3752897a33c81b"
+  "version" "10.0.0"
+  dependencies:
+    "deprecated-react-native-listview" "0.0.6"
+    "prop-types" "^15.5.10"
+    "xdate" "^0.8.0"
+
 "uglify-es@^3.1.9":
   "integrity" "sha512-r+MU0rfv4L/0eeW3xZrd16t4NZfK8Ld4SWVglYBb7ez5uXFWHuVRs6xCTrf1yirs9a4j4Y27nn7SRfO6v67XsQ=="
   "resolved" "https://registry.npmjs.org/uglify-es/-/uglify-es-3.3.9.tgz"
@@ -7009,6 +7032,11 @@
   dependencies:
     "simple-plist" "^1.1.0"
     "uuid" "^7.0.3"
+
+"xdate@^0.8.0":
+  "integrity" "sha1-17AzwASF0CaVuvAET06s2j/JYaM="
+  "resolved" "https://registry.npmjs.org/xdate/-/xdate-0.8.2.tgz"
+  "version" "0.8.2"
 
 "xhr@^2.0.1":
   "integrity" "sha512-/eCGLb5rxjx5e3mF1A7s+pLlR6CGyqWN91fv1JgER5mVWg1MZmlhBvy9kjcsOdRk8RrIujotWyJamfyrp+WIcA=="
