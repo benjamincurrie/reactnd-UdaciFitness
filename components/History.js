@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import {receiveEntries, addEntry} from '../actions'
 import {timeToString, getDailyReminderValue} from '../utils/helpers'
 import {fetchCalendarResults} from '../utils/api'
 import UdaciFitnessCalendar from 'udacifitness-calendar'
+import {white} from '../utils/colors'
+import DateHeader from './DateHeader'
+import MetricCard from './MetricCard'
+import { styleSheets } from 'min-document'
 
 
 class History extends Component {
@@ -23,19 +27,28 @@ class History extends Component {
   }
 
   renderItem = ({ today, ...metrics}, formattedDate, key) => (
-    <View>
+    <View style={styles.item}>
       {today
-        ? <Text>{JSON.stringify(today)}</Text>
-        : <Text>{JSON.stringify(metrics)}</Text>
-      
+        ? <View>
+            <DateHeader date={formattedDate} />
+            <Text style={styles.noDataText}>
+              {today}
+            </Text>
+          </View>
+        : <TouchableOpacity onpress={() => console.log('Pressed')}>
+            <MetricCard metrics={metrics} date={formattedDate}/>
+          </TouchableOpacity>
       }
     </View>
   )
 
   renderEmptyDate(formattedDate) {
     return (
-      <View>
-        <Text>No data for this day</Text>
+      <View style={styles.item}>
+        <DateHeader date={formattedDate} />
+        <Text style={styles.noDataText}>
+          You didn't log any data on this day
+        </Text>
       </View>
     )
   }
@@ -51,6 +64,28 @@ class History extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: white,
+    borderRadius: Platform.OS === 'ios' ? 16 : 2,
+    padding: 20,
+    marginHorizontal: 10,
+    marginTop: 17,
+    justifyContent: 'center',
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0,0,0,0.24)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    }
+  },
+  noDataText: {
+    fontSize: 20,
+    paddingVertical: 20
+  }
+})
 
 function mapStateToProps (entries) {
   return {
