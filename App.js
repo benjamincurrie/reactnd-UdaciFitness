@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, StatusBar } from 'react-native'
 import AddEntry from './components/AddEntry'
 import History from './components/History'
 import { createStore } from 'redux'
@@ -10,6 +10,15 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { NavigationContainer } from '@react-navigation/native'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { purple, white } from './utils/colors'
+import Constants from 'expo-constants'
+
+function UdaciStatusBar ({backgroundColor, ...props}) {
+  return (
+    <View style={{backgroundColor, height: Constants.statusBarHeight}}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
 
 const Tab =
   Platform.OS === 'ios'
@@ -20,6 +29,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
+        <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
