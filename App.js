@@ -1,13 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, StatusBar, TabBarIOS } from 'react-native'
 import AddEntry from './components/AddEntry'
 import History from './components/History'
+import EntryDetail from './components/EntryDetail'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, createAppContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { purple, white } from './utils/colors'
 import Constants from 'expo-constants'
@@ -24,6 +26,25 @@ const Tab =
   Platform.OS === 'ios'
     ? createBottomTabNavigator()
     : createMaterialTopTabNavigator()
+
+const MainStack = createStackNavigator()
+
+function MainNavigator() {
+  return (
+    <MainStack.Navigator>
+      <MainStack.Screen
+        name="History"
+        component={History}
+        options={{ tabBarLabel: 'History' }}
+      />
+      <MainStack.Screen
+        name="EntryDetail"
+        component={EntryDetail}
+        options={{ tabBarLabel: 'EntryDetail' }}
+      />
+    </MainStack.Navigator>
+  )
+}
 
 export default class App extends React.Component {
   render() {
@@ -58,7 +79,7 @@ export default class App extends React.Component {
               },
             }}
           >
-            <Tab.Screen name="History" component={History} />
+            <Tab.Screen name="History" component={MainNavigator} />
             <Tab.Screen name="Add Entry" component={AddEntry} />
           </Tab.Navigator>
         </NavigationContainer>
